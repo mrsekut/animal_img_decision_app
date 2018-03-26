@@ -3,8 +3,8 @@ from urllib.request import urlretrieve
 # from pprint import pprint
 import os, time, sys
 
-key = "fa431616a504029baf201d06ebfb391d"
-secret = "12a9dc9a565fa772"
+key = ""
+secret = ""
 wait_time = 1
 
 animal_name = sys.argv[1]
