@@ -1,6 +1,5 @@
 from flickrapi import FlickrAPI
 from urllib.request import urlretrieve
-# from pprint import pprint
 import os, time, sys
 
 # flickrAPIのkeyとsecretを記述
@@ -23,8 +22,6 @@ result = flickr.photos.search(
 )
 
 photos = result['photos']
-pprint(photos)
-
 
 for i, photo in enumerate(photos['photo']):
     url_q = photo['url_q']
