@@ -51,7 +51,7 @@ def model_train(X_train, X_test, y_train, y_test):
     model.add(Activation('relu'))
     model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
-    model.add(AveragePooling2D(pool_size=(2, 2)))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.25))
 
     model.add(Conv2D(64, (3, 3), padding='same'))
