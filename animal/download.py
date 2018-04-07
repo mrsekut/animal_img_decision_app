@@ -3,6 +3,7 @@ from urllib.request import urlretrieve
 # from pprint import pprint
 import os, time, sys
 
+# flickrAPIのkeyとsecretを記述
 key = ""
 secret = ""
 wait_time = 1
