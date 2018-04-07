@@ -40,6 +40,7 @@ for index, clss in enumerate(classes):
                 X_train.append(data)
                 Y_train.append(index)
 
+# numpy配列に変換
 X_train = np.array(X_train)
 X_test = np.array(X_test)
 Y_train = np.array(Y_train)
