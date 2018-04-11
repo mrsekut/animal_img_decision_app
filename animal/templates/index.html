@@ -4,24 +4,21 @@
 <div class="container">
   <div class="row content">
     <h1>判定機です</h1>
-    <form method="post" enctype="multipart/form-data" action="/result" class="dropzone" id="boxs">
+    {{ dropzone.create(action_view='upload_file') }}
+  </div>
+</div>
+
+
+<!-- <div class="container">
+  <div class="row content">
+    <h1>判定機です</h1>
+    <form method="post" enctype="multipart/form-data" action="/predict_page">
       <div class="fallback">
         <input name="file" type="file"/>
       </div>
+      <input type="submit" value="Upload">
     </form>
   </div>
-
-
-  <!-- <div class="container">
-    <div class="row content">
-      <h1>判定機です</h1>
-      <form method="post" enctype="multipart/form-data" action="/result">
-        <div class="fallback">
-          <input name="file" type="file"/>
-        </div>
-        <input type="submit" value="Upload">
-      </form>
-    </div> -->
-
+</div> -->
 
 {% endblock %}

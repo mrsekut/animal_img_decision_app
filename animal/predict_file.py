@@ -6,18 +6,24 @@ from keras.models import Sequential, load_model
 import keras, sys
 from PIL import Image
 import numpy as np
+from flask_dropzone import Dropzone
 
 classes = ["cat","penguin","hedgehog","snake"]
 num_classes = len(classes)
 image_size = 50
 
-
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['jpg','png','gif'])
 
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+app.config.update(
+    UPLOAD_FOLDER=UPLOAD_FOLDER,
+    DROPZONE_MAX_FILES=1,
+    DROPZONE_REDIRECT_VIEW='predict_page',
+)
+
+dropzone = Dropzone(app)
 
 
 # ファイルのアップロードの可否を判定する
@@ -30,7 +36,7 @@ def allowed_file(filename):
 def upload_file():
     return render_template('index.html')
 
-@app.route('/result', methods=['GET','POST'])
+@app.route('/predict_page', methods=['GET','POST'])
 def predict_page():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -63,3 +69,7 @@ def predict_page():
             percentage = int(result[predicted] * 100)
 
             return "ラベル: " + classes[predicted] + ", 確率:" + str(percentage) + "%"
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
