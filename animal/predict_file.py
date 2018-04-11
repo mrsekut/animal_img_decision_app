@@ -20,7 +20,7 @@ app = Flask(__name__)
 app.config.update(
     UPLOAD_FOLDER=UPLOAD_FOLDER,
     DROPZONE_MAX_FILES=1,
-    DROPZONE_REDIRECT_VIEW='predict_page',
+    # DROPZONE_REDIRECT_VIEW='predict_page',
 )
 
 dropzone = Dropzone(app)
@@ -68,7 +68,7 @@ def predict_page():
             predicted = result.argmax()
             percentage = int(result[predicted] * 100)
 
-            return "ラベル: " + classes[predicted] + ", 確率:" + str(percentage) + "%"
+            return render_template('predict_page.html', predict=classes[predicted], percentage=percentage, result=result)
 
 
 if __name__ == '__main__':

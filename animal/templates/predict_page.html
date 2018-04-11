@@ -1,0 +1,38 @@
+{% extends "form.html" %}
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+<div class="result-content">
+  <p class="result">{{percentage}}%の確率で{{ predict }}です</p>
+  <canvas id="myChart" width="400" height="400"></canvas>
+  <p class="raito">{{ result }}</p>
+</div>
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["cat", "penguin", "hedgehog", "snake"],
+        datasets: [{
+          data: ['{{ result[0] }}','{{ result[1] }}','{{ result[2] }}','{{ result[3] }}'],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+          ],
+          borderWidth: 1
+        }]
+    },
+});
+</script>
+
+{% endblock %}
