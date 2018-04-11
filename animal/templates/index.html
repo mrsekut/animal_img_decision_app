@@ -1,10 +1,27 @@
 {% extends "form.html" %}
 {% block content %}
-<h1>かわいい判定機です</h1>
-<form method=post enctype=multipart/form-data>
-  <p>
-    <input type=file name=file>
-    <input type=submit value=Upload>
-  </p>
-</form>
+
+<div class="container">
+  <div class="row content">
+    <h1>判定機です</h1>
+    <form method="post" enctype="multipart/form-data" action="/result" class="dropzone" id="boxs">
+      <div class="fallback">
+        <input name="file" type="file"/>
+      </div>
+    </form>
+  </div>
+
+
+  <!-- <div class="container">
+    <div class="row content">
+      <h1>判定機です</h1>
+      <form method="post" enctype="multipart/form-data" action="/result">
+        <div class="fallback">
+          <input name="file" type="file"/>
+        </div>
+        <input type="submit" value="Upload">
+      </form>
+    </div> -->
+
+
 {% endblock %}

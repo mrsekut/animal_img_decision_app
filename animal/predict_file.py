@@ -28,6 +28,10 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
+    return render_template('index.html')
+
+@app.route('/result', methods=['GET','POST'])
+def predict_page():
     if request.method == 'POST':
         if 'file' not in request.files:
             flash("ファイルがありません")
@@ -59,9 +63,3 @@ def upload_file():
             percentage = int(result[predicted] * 100)
 
             return "ラベル: " + classes[predicted] + ", 確率:" + str(percentage) + "%"
-
-    return render_template('index.html')
-
-# @app.route('/uploads/<filename>')
-# def uploaded_file(filename):
-#     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
