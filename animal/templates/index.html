@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row content">
-    <!-- <h1>判定機です</h1> -->
+    <h1>かわいい判定機です</h1>
     {{ dropzone.create(action_view='upload_file') }}
   </div>
 </div>
@@ -12,7 +12,6 @@
 <div class="container">
   <div class="row content">
     <!-- <h1>判定機です</h1> -->
-    <!-- <form method="post" enctype="multipart/form-data"> -->
     <form method="post" enctype="multipart/form-data" action="/predict_page">
       <div class="fallback">
         <input name="file" type="file"/>
